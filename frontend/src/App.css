@@ -1,0 +1,370 @@
+/* =========================
+   RESET
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   VARIÁVEIS
+========================= */
+
+:root {
+  --primary: #0056b3; /* Azul mais escuro para confiança */
+  --secondary: #6c757d; /* Cinza para elementos secundários */
+  --success: #28a745; /* Verde para sucesso */
+  --danger: #dc3545; /* Vermelho para erros */
+  --warning: #ffc107; /* Amarelo para avisos */
+  --info: #17a2b8; /* Azul claro para info */
+
+  --bg-light: #f8f9fa; /* Fundo claro */
+  --bg-dark: #343a40; /* Fundo escuro para modo dark */
+  --card-light: #ffffff; /* Cards brancos */
+  --card-dark: #495057; /* Cards escuros */
+  --text-light: #212529; /* Texto escuro */
+  --text-dark: #f8f9fa; /* Texto claro */
+  --border: #dee2e6; /* Bordas */
+
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombras leves */
+}
+
+/* =========================
+   ROOT
+========================= */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+  width: 250px;
+  min-height: calc(100vh - 80px);
+  background-color: var(--primary);
+  color: white;
+  padding-top: 10px;
+}
+
+.sidebar .nav-item {
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebar .nav-item span {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar .nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.sidebar .nav-item.active {
+  background-color: white;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.sidebar i {
+  font-size: 1.2rem;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar {
+  height: 80px;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-box {
+  width: 300px;
+  position: relative;
+}
+
+.search-box input {
+  padding-left: 25px;
+}
+
+.search-box i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+.icon {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.user i {
+  font-size: 1.7rem;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 56px;
+  height: 56px;
+  font-size: 1.8rem;
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+/* =========================
+   TEMA
+========================= */
+
+.app.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.app.light {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+.app.dark .topbar {
+  background-color: var(--card-dark);
+  border-bottom: 1px solid var(--border);
+}
+
+.app.light .topbar {
+  background-color: var(--card-light);
+  border-bottom: 1px solid var(--border);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content-area {
+  min-height: calc(100vh - 80px);
+  padding: 20px;
+}
+
+.app.dark .content-area {
+  background-color: var(--bg-dark);
+}
+
+.app.light .content-area {
+  background-color: var(--bg-light);
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+.app.dark .card {
+  background-color: var(--card-dark);
+  color: var(--text-dark);
+  border: 1px solid var(--border);
+}
+
+.app.light .card {
+  background-color: var(--card-light);
+  color: var(--text-light);
+  border: 1px solid var(--border);
+}
+
+.app.dark .text-muted {
+  color: var(--secondary) !important;
+}
+
+/* =========================
+   TABELAS
+========================= */
+
+.app.dark .table {
+  background-color: transparent;
+  color: white;
+}
+
+.app.dark .table th,
+.app.dark .table td {
+  background-color: var(--dark-card) !important;
+  border-color: var(--dark-border) !important;
+  color: white !important;
+}
+
+.app.dark .table thead th {
+  background-color: #242a30 !important;
+  color: white !important;
+}
+
+.app.dark .table tbody tr:hover {
+  background-color: #2a3036 !important;
+}
+
+/* =========================
+   LISTAS
+========================= */
+
+.app.dark .list-group-item {
+  background-color: var(--dark-card);
+  color: white;
+  border-color: var(--dark-border);
+}
+
+.app.light .list-group-item {
+  background-color: white;
+  color: var(--light-text);
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard-card {
+  border: none;
+}
+
+.app.dark .dashboard-card {
+  background-color: var(--dark-card);
+}
+
+.app.light .dashboard-card {
+  background-color: #f7f9fb;
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-page {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.login-page.dark {
+  background-color: var(--dark-bg);
+  color: white;
+}
+
+.login-page.light {
+  background-color: #f5f5f5;
+  color: var(--light-text);
+}
+
+.login-page.dark .login-card {
+  background-color: black;
+}
+
+.login-page.light .login-card {
+  background-color: white;
+}
+
+.login-page.dark .form-control {
+  background-color: var(--dark-input);
+  color: white;
+  border-color: #555;
+}
+
+.login-page.dark .form-control::placeholder {
+  color: #aaa;
+}
+
+/* =========================
+   BOTÃO TEMA
+========================= */
+
+.theme-toggle {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 999;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.theme-toggle.dark {
+  color: white;
+}
+
+.theme-toggle.light {
+  color: #333;
+}
+
+.theme-toggle i {
+  display: inline-block;
+  transition: transform 0.4s ease;
+}
+
+.theme-toggle:active i {
+  transform: rotate(180deg) scale(1.2);
+}
+
+.theme-toggle:hover i {
+  transform: rotate(20deg) scale(1.1);
+}
+
+/* =========================
+   MENU USUÁRIO
+========================= */
+
+.user-menu {
+  position: absolute;
+  top: 60px;
+  right: 16px;
+  width: 280px;
+  background-color: var(--dark-bg);
+  color: white;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.menu-item {
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

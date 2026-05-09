@@ -1,0 +1,12 @@
+Inicialização:
+
+- XAMPP
+- Abrir MySQL
+
+  cd backend; cd OficinaAPI
+- dotnet run
+-localhost:5008/swagger
+
+
+para atualizar o banco de dados:
+- dotnet ef database update
