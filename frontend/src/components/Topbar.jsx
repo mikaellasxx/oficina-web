@@ -5,134 +5,62 @@ export default function Topbar({ onLogout, tema, toggleTema }) {
   const [menuAberto, setMenuAberto] = useState(false);
   const location = useLocation();
 
-  // CONFIGURAÇÃO POR PÁGINA
-  const paginas = {
-    '/': {
-      titulo: 'CodeDrive Automotive',
-      botao: 'Novo Registro',
-    },
-    '/clientes': {
-      titulo: 'Clientes',
-      botao: 'Novo Registro',
-    },
-    '/servicos': {
-      titulo: 'Serviços',
-      botao: 'Novo Registro',
-    },
-    '/pecas': {
-      titulo: 'Peças e Serviços',
-      botao: 'Novo Registro',
-    },
-    '/os': {
-      titulo: 'Ordens de Serviço',
-      botao: 'Novo Registro',
-    },
-    '/fornecedores': {
-      titulo: 'Fornecedores',
-      botao: 'Novo Registro',
-    },
-    '/funcionarios': {
-      titulo: 'Funcionários',
-      botao: 'Novo Registro',
-    },
-
-    // fallback
-    default: {
-      titulo: 'CodeDrive Automotive',
-    },
+  const secoes = {
+    clientes: 'Clientes',
+    servicos: 'Serviços',
+    pecas: 'Peças',
+    os: 'Ordens de Serviço',
+    fornecedores: 'Fornecedores',
+    funcionarios: 'Funcionários',
   };
+  const segmento = location.pathname.split('/').filter(Boolean)[0];
+  const titulo = secoes[segmento] || 'Visão geral';
 
-  const paginaAtual = paginas[location.pathname] || paginas.default;
   return (
-    <div className='topbar d-flex align-items-center justify-content-between px-5 py-3'>
-      {/* ESQUERDA - LOGOTIPO + TÍTULO DINÂMICO */}
-      <div className='d-flex align-items-center gap-4'>
-        <div className='logo d-flex align-items-center gap-2 p'>
-          <div className='logo-icon bg-primary text-white rounded-circle d-flex align-items-center justify-content-center'>
-            <i className='bi bi-wrench-adjustable'></i>
+    <header className='topbar'>
+      <div className='topbar-branding'>
+        <div className='logo'>
+          <div className='logo-icon'>
+            <i className='bi bi-wrench-adjustable' aria-hidden='true'></i>
           </div>
-          <div>
-            <div className='logo-text fw-bold mb-0'>CodeDrive Automotive</div>
-            <small className='text-muted'>Oficina Web</small>
+          <div className='logo-copy'>
+            <div className='logo-text'>CodeDrive Automotive</div>
+            <small>Gestão da oficina</small>
           </div>
         </div>
-
-        {/* TÍTULO DA PÁGINA */}
-        {paginaAtual.titulo &&
-          paginaAtual.titulo !== 'CodeDrive Automotive' && (
-            <div
-              className='d-flex align-items-center ps-4'
-              style={{
-                borderLeft: '2px solid #0d6efd',
-              }}
-            >
-              <h5
-                className='mb-0 fw-bold'
-                style={{ color: '#0d6efd', fontSize: '18px' }}
-              >
-                {paginaAtual.titulo}
-              </h5>
-            </div>
-          )}
+        <div className='topbar-divider' aria-hidden='true'></div>
+        <div className='topbar-section'>{titulo}</div>
       </div>
 
-      <div className='d-flex align-items-center gap-3 position-relative'>
-        {/* BOTÃO DINÂMICO */}
-        {paginaAtual.botao && (
-          <button className='btn btn-primary'>
-            <i className='bi bi-plus'></i> {paginaAtual.botao}
-          </button>
-        )}
-
-        {/* USUÁRIO */}
-        <div
-          className='user d-flex align-items-center'
-          style={{ cursor: 'pointer' }}
+      <div className='topbar-actions'>
+        <button
+          type='button'
+          className='user-button'
           onClick={() => setMenuAberto(!menuAberto)}
+          aria-expanded={menuAberto}
+          aria-label='Abrir menu do usuário'
         >
-          <i className='bi bi-person-circle'></i>
-          <span className='ms-2'>Mikaella</span>
-        </div>
+          <span className='user-avatar'>M</span>
+          <span className='user-copy'>
+            <strong>Mikaella</strong>
+            <small>Administradora</small>
+          </span>
+          <i className={`bi bi-chevron-${menuAberto ? 'up' : 'down'}`}></i>
+        </button>
 
-        {/* MENU DROPDOWN
         {menuAberto && (
-          <div className='user-menu shadow'>
-            <div className='p-3 border-bottom'>
-              <strong>Mikaella Corrêa</strong>
-              <div className='text-muted small'>
-                ID suporte: <strong>98031768</strong>
-              </div>
-            </div>
-
-            <div className='p-3'>
-              <div className='menu-item bi bi-person'> Perfil</div>
-              <div className='menu-item bi bi-building'> Empresa</div>
-              <div className='menu-item bi bi-gear'> Configurações</div>
-
-              <div
-                className='menu-item d-flex align-items-center gap-2'
-                onClick={toggleTema}
-                style={{ cursor: 'pointer' }}
-              >
-                <i
-                  className={`bi ${tema === 'dark' ? 'bi-sun' : 'bi-moon'}`}
-                ></i>
-                Tema
-              </div>
-            </div>
-
-            <div className='border-top p-3'>
-              <button
-                className='btn btn-outline-danger w-100'
-                onClick={onLogout}
-              >
-                <i className='bi bi-box-arrow-right me-2'></i>
-                Sair
-              </button>
-            </div>
+          <div className='user-menu'>
+            <button type='button' className='menu-item' onClick={toggleTema}>
+              <i className={`bi ${tema === 'dark' ? 'bi-sun' : 'bi-moon'}`}></i>
+              Alternar tema
+            </button>
+            <button type='button' className='menu-item danger' onClick={onLogout}>
+              <i className='bi bi-box-arrow-right'></i>
+              Sair do sistema
+            </button>
           </div>
-        )} */}
+        )}
       </div>
-    </div>
+    </header>
   );
 }

@@ -78,15 +78,15 @@ function App() {
   // ✅ LAYOUT (SIDEBAR + TOPBAR)
   function Layout() {
     return (
-      <div className={`app ${tema} vh-100 d-flex flex-column`}>
+      <div className={`app ${tema}`}>
         <Topbar onLogout={handleLogout} tema={tema} toggleTema={toggleTema} />
 
-        <div className='d-flex flex-fill'>
+        <div className='app-shell'>
           <Sidebar onLogout={handleLogout} />
 
-          <div className='content-area flex-fill p-4'>
+          <main className='content-area'>
             <Outlet />
-          </div>
+          </main>
         </div>
       </div>
     );
@@ -106,7 +106,6 @@ function App() {
             erro={erro}
             handleLogin={handleLogin}
             tema={tema}
-            toggleTema={toggleTema}
           />
         }
       />

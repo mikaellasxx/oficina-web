@@ -9,7 +9,6 @@ export default function Login({
   erro,
   handleLogin,
   tema,
-  toggleTema,
 }) {
   const navigate = useNavigate();
 
@@ -17,7 +16,7 @@ export default function Login({
     if (localStorage.getItem('logado') === 'true') {
       navigate('/');
     }
-  }, []);
+  }, [navigate]);
 
   function handleKeyPress(e) {
     if (e.key === 'Enter') {

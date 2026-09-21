@@ -1,66 +1,44 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function Sidebar({ onLogout }) {
+  const itens = [
+    { to: '/', icon: 'bi-grid-1x2', label: 'Início', end: true },
+    { to: '/clientes', icon: 'bi-people', label: 'Clientes' },
+    { to: '/servicos', icon: 'bi-hand-thumbs-up', label: 'Serviços' },
+    { to: '/pecas', icon: 'bi-tools', label: 'Peças' },
+    { to: '/os', icon: 'bi-clipboard-check', label: 'Ordens de Serviço' },
+    { to: '/fornecedores', icon: 'bi-truck', label: 'Fornecedores' },
+    { to: '/funcionarios', icon: 'bi-person-gear', label: 'Funcionários' },
+  ];
+
   return (
-    <div className='sidebar bg-primary'>
-      <ul className='nav flex-column bg-primary'>
-        <li className='nav-item pt-1'>
-          <Link to='/' className='nav-link text-white'>
-            <i className='bi bi-house'></i> Início
-          </Link>
-        </li>
+    <aside className='sidebar'>
+      <nav className='sidebar-nav' aria-label='Menu principal'>
+        {itens.map((item) => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            end={item.end}
+            className={({ isActive }) =>
+              `sidebar-link${isActive ? ' active' : ''}`
+            }
+          >
+            <i className={`bi ${item.icon}`} aria-hidden='true'></i>
+            <span>{item.label}</span>
+            <i className='bi bi-chevron-right sidebar-chevron'></i>
+          </NavLink>
+        ))}
 
-        <li className='nav-item'>
-          <Link to='/Clientes' className='nav-link text-white'>
-            <i className='bi bi-people'></i> Clientes
-          </Link>
-          <i className='bi bi-chevron-right'></i>
-        </li>
-
-        <li className='nav-item'>
-          <Link to='/Servicos' className='nav-link text-white'>
-            <i className='bi bi-hand-thumbs-up'></i> Serviços
-          </Link>
-          <i className='bi bi-chevron-right'></i>
-        </li>
-
-        <li className='nav-item'>
-          <Link to='/Pecas' className='nav-link text-white'>
-            <i className='bi bi-tools'></i> Peças
-          </Link>
-          <i className='bi bi-chevron-right'></i>
-        </li>
-
-        <li className='nav-item'>
-          <Link to='/Os' className='nav-link text-white'>
-            <i className='bi bi-list'></i> Ordens de Serviço
-          </Link>
-          <i className='bi bi-chevron-right'></i>
-        </li>
-
-        <li className='nav-item'>
-          <Link to='/Fornecedores' className='nav-link text-white'>
-            <i className='bi bi-truck'></i> Fornecedores
-          </Link>
-          <i className='bi bi-chevron-right'></i>
-        </li>
-
-        <li className='nav-item'>
-          <Link to='/Funcionarios' className='nav-link text-white'>
-            <i className='bi bi-person-fill-gear'></i> Funcionários
-          </Link>
-          <i className='bi bi-chevron-right'></i>
-        </li>
-        {/* botao de sair */}
-        <li className='nav-item mt-auto'>
+        <div className='sidebar-footer'>
           <button
-            className='nav-link text-white bg-transparent border-0 w-100 text-start'
+            className='sidebar-link sidebar-logout'
             onClick={onLogout}
           >
-            <i className='bi bi-box-arrow-right'></i> Sair
+            <i className='bi bi-box-arrow-right' aria-hidden='true'></i>
+            <span>Sair</span>
           </button>
-        </li>
-      </ul>
-    </div>
+        </div>
+      </nav>
+    </aside>
   );
 }

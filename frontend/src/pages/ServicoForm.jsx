@@ -14,16 +14,6 @@ export default function ServicoForm() {
     setServico({ ...servico, [e.target.name]: e.target.value });
   }
 
-  // adicionar serviço na lista
-  function adicionarServico() {
-    if (!servico.nome || !servico.preco) return;
-
-    setServico({
-      ...servico,
-      veiculos: [...servico.veiculos, veiculo],
-    });
-  }
-
   // salvar serviço
   function salvar() {
     fetch('http://localhost:5008/api/Servicos', {

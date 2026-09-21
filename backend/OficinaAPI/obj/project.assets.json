@@ -3299,19 +3299,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mikaella Correa\\.nuget\\packages\\": {}
+    "C:\\Users\\Mikaella\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mikaella Correa\\Desktop\\programacao\\PROJETOS PESSOAIS\\OFICINA WEB\\backend\\OficinaAPI\\OficinaAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Mikaella\\Desktop\\programacao\\PROJETOS PESSOAIS\\OFICINA WEB\\backend\\OficinaAPI\\OficinaAPI.csproj",
       "projectName": "OficinaAPI",
-      "projectPath": "C:\\Users\\Mikaella Correa\\Desktop\\programacao\\PROJETOS PESSOAIS\\OFICINA WEB\\backend\\OficinaAPI\\OficinaAPI.csproj",
-      "packagesPath": "C:\\Users\\Mikaella Correa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mikaella Correa\\Desktop\\programacao\\PROJETOS PESSOAIS\\OFICINA WEB\\backend\\OficinaAPI\\obj\\",
+      "projectPath": "C:\\Users\\Mikaella\\Desktop\\programacao\\PROJETOS PESSOAIS\\OFICINA WEB\\backend\\OficinaAPI\\OficinaAPI.csproj",
+      "packagesPath": "C:\\Users\\Mikaella\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mikaella\\Desktop\\programacao\\PROJETOS PESSOAIS\\OFICINA WEB\\backend\\OficinaAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Mikaella Correa\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Mikaella\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -3389,7 +3389,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.317/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
